@@ -239,6 +239,7 @@ et $U$ be a uniform random variable between 0 and 1.
 \solution Download the following files and execute the  C program.
 \begin{lstlisting}
 wget https://github.com/HarshaVardhanReddyG/A1110_Assignment/blob/main/codes/exrand.c
+wget https://github.com/HarshaVardhanReddyG/A1110_Assignment/blob/main/codes/coeffs.h
 \end{lstlisting}
 %
 \item
@@ -288,6 +289,7 @@ Write a C program to  find the mean and variance of $U$. \\
 \solution Download the following files and execute the  C program.
 \begin{lstlisting}
 wget https://github.com/HarshaVardhanReddyG/A1110_Assignment/blob/main/codes/mean_variance.c
+wget https://github.com/HarshaVardhanReddyG/A1110_Assignment/blob/main/codes/coeffs.h
 \end{lstlisting}
 \item Verify your result theoretically given that
 \begin{equation}
@@ -322,8 +324,7 @@ Therefore,
 \section{Central Limit Theorem}
 \begin{enumerate}[label=\thesection.\arabic*
 ,ref=\thesection.\theenumi]
-\item
-Generate $10^6$ samples of the random variable
+\item Generate $10^6$ samples of the random variable
 %
 \begin{equation}
 X = \sum_{i=1}^{12}U_i -6
@@ -334,6 +335,7 @@ and save in a file called gau.dat\\
 \solution Download the following files and execute the  C program.
 \begin{lstlisting}
 wget https://github.com/HarshaVardhanReddyG/A1110_Assignment/blob/main/codes/exrand_gaussian.c
+wget https://github.com/HarshaVardhanReddyG/A1110_Assignment/blob/main/codes/coeffs.h
 \end{lstlisting}
 \item Load "gau.dat" in python and plot the empirical $CDF$ of $X$ using the samples in "gau.dat". What properties does a $CDF$ have?\\
 \solution
@@ -348,7 +350,14 @@ wget https://github.com/HarshaVardhanReddyG/A1110_Assignment/blob/main/codes/cdf
 \centering
 \label{fig:gauss_cdf}
 \end{figure}
-
+\begin{enumerate}
+    \item CDF is monotonic increasing
+    \item 
+    \begin{align}
+        \lim _{x \to -\infty}F(x) &=0.\\
+        \lim_{x\to \infty} F(x) &=1
+    \end{align}
+\end{enumerate}
 \item
 Load gau.dat in python and plot the empirical PDF of $X$ using the samples in gau.dat. The PDF of $X$ is defined as
 \begin{align}
@@ -367,6 +376,13 @@ wget https://github.com/HarshaVardhanReddyG/A1110_Assignment/blob/main/codes/pdf
 \centering
 \label{fig:gauss_pdf}
 \end{figure}
+\begin{enumerate}
+    \item $\forall x \in \mathbf{R}$ $p(x)\ge 0$
+    \item 
+    \begin{align}
+        \int_{-\infty}^\infty p(x)dx&=1
+    \end{align}
+\end{enumerate}
 
 \item Find the mean and variance of $X$ by writing a C program.
 \item Given that 
@@ -426,6 +442,26 @@ wget https://github.com/HarshaVardhanReddyG/A1110_Assignment/blob/main/codes/cdf
         &=P\left(U \leq 1-e^{-\frac{x}{2}}\right)\\
         \implies F_V(x)&=1-e^{-\frac{x}{2}}
     \end{align}
-    
+\section{Triangular Distribution}
+\begin{enumerate}[label=\thesection.\arabic*
+,ref=\thesection.\theenumi]
+\item Generate 
+\begin{align}
+    T&=U_1 + U_2
+\end{align}
+\solution Download the following files and execute the  C program.
+\begin{lstlisting}
+wget https://github.com/HarshaVardhanReddyG/A1110_Assignment/blob/main/codes/T_exrand.c
+wget https://github.com/HarshaVardhanReddyG/A1110_Assignment/blob/main/codes/coeffs.h
+\end{lstlisting}
+
+\item Find the CDF of T.\\
+\solution
+
+\item Find the PDF of T.
+\item Find the theoritical expressions for CDF and PDF of T.
+\item Verify your results through a plot.
+\end{enumerate}
+
 \end{enumerate}
 \end{document}
